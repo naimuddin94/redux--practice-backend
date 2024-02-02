@@ -1,10 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const globalErrorHandler = require("./lib/globalErrorHandler");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
 app.use(express.json());
+
+app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the redux-practice server");
